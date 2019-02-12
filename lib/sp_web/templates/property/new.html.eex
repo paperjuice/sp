@@ -1,0 +1,57 @@
+<%= form_for(@conn, property_path(@conn, :insert), fn f -> %>
+  Suburb <%= text_input(f, :suburb) %></br>
+  Street <%= text_input(f, :street) %></br>
+
+  <h3>Property Data</h3>
+  Weekly Price <%= text_input(f, :weekly_price) %></br>
+  Available: <%= date_input(f, :available_date) %></br>
+
+
+  <h3>Property Data</h3>
+  Land Size <%= text_input(f, :land_size, [type: :number]) %></br>
+  Building Size <%= text_input(f, :building_size) %></br>
+  Rates <%= text_input(f, :rates) %></br>
+  Strata <%= text_input(f, :strata) %></br>
+
+  <% #TODO: Add custom text input %>
+  <h3>Features</h3>
+  <div>
+    <%= checkbox(f, :garden, checked: false) %> Garden?</br>
+    <%= checkbox(f, :formal_lounge, checked: false) %> Formal lounge?</br>
+    <%= checkbox(f, :close_to_transport, checked: false) %> Close to transport?</br>
+    <%= checkbox(f, :close_to_shops, checked: false) %> Close to shops?</br>
+    <%= checkbox(f, :close_to_schools, checked: false) %> Close to schools?</br>
+    <%= checkbox(f, :built_in_wardrobes, checked: false) %> Built in wardrobes?</br>
+    <%= checkbox(f, :air_conditioning_heating, checked: false) %> Air conditioning?</br>
+    <%= checkbox(f, :heating, checked: false) %> Heating?</br>
+  </div>
+  <div>
+    <%= checkbox(f, :modern_bathroom, checked: false) %> Modern bathroom?</br>
+    <%= checkbox(f, :modern_kitchen, checked: false) %> Modern kitchen?</br>
+    <%= checkbox(f, :outdoor_area, checked: false) %> Outdoor entertainment area?</br>
+    <%= checkbox(f, :quiet_location, checked: false) %> Quiet location?</br>
+    <%= checkbox(f, :security, checked: false) %> Security?</br>
+    <%= checkbox(f, :study, checked: false) %> Study?</br>
+    <%= checkbox(f, :sunroom, checked: false) %> Sunroom?</br>
+    <%= checkbox(f, :terrace_balcony, checked: false) %> Terrace and Balcony?</br>
+    <%= checkbox(f, :views, checked: false) %> Views?</br>
+    Additional fields <%= text_input(f, :addition_field) %></br>
+  </div>
+
+
+  <h3>Inspection Time</h3>
+  Date: <%= date_input(f, :inspection_date) %></br>
+  <%= datetime_select(f, :inspection_time, builder: fn b -> %>
+    From: <%= b.(:hour, []) %>:<%= b.(:minute, []) %></br>
+    To: <%= b.(:hour, []) %>:<%= b.(:minute, []) %></br>
+  <% end) %>
+
+  <h3>Description</h3>
+  <%= textarea(f, :description, [rows: 30, cols: 50]) %></br> </br>
+
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+
+<% end) %>

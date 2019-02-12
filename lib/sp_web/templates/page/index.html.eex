@@ -2,3 +2,4 @@
 
 
 <%= link("Properties", to: "/property", class: "btn" ) %>
+<%= link("Add Properties", to: "/property/new", class: "btn" ) %>

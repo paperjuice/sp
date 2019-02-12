@@ -19,10 +19,7 @@ defmodule SpWeb.Router do
     get "/", PageController, :index
 
     get "/property", PropertyController, :index
+    get "/property/new", PropertyController, :new
+    post "/property/insert", PropertyController, :insert
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", SpWeb do
-  #   pipe_through :api
-  # end
 end
