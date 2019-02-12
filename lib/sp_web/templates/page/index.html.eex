@@ -1,0 +1,4 @@
+<h2>Renting</h2>
+
+
+<%= link("Properties", to: "/property", class: "btn" ) %>
