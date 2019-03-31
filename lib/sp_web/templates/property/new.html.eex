@@ -16,33 +16,35 @@
   <% #TODO: Add custom text input %>
   <h3>Features</h3>
   <div>
-    <%= checkbox(f, :garden, checked: false) %> Garden?</br>
-    <%= checkbox(f, :formal_lounge, checked: false) %> Formal lounge?</br>
-    <%= checkbox(f, :close_to_transport, checked: false) %> Close to transport?</br>
-    <%= checkbox(f, :close_to_shops, checked: false) %> Close to shops?</br>
-    <%= checkbox(f, :close_to_schools, checked: false) %> Close to schools?</br>
-    <%= checkbox(f, :built_in_wardrobes, checked: false) %> Built in wardrobes?</br>
-    <%= checkbox(f, :air_conditioning_heating, checked: false) %> Air conditioning?</br>
-    <%= checkbox(f, :heating, checked: false) %> Heating?</br>
+    <%= capture_features(f, :garden) %> Garden?</br>
+    <%= capture_features(f, :formal_lounge) %> Formal lounge?</br>
+    <%= capture_features(f, :close_to_transport) %> Close to transport?</br>
+    <%= capture_features(f, :close_to_shops) %> Close to shops?</br>
+    <%= capture_features(f, :close_to_schools) %> Close to schools?</br>
+    <%= capture_features(f, :built_in_wardrobes) %> Built in wardrobes?</br>
+    <%= capture_features(f, :air_conditioning_heating) %> Air conditioning?</br>
+    <%= capture_features(f, :heating) %> Heating?</br>
   </div>
   <div>
-    <%= checkbox(f, :modern_bathroom, checked: false) %> Modern bathroom?</br>
-    <%= checkbox(f, :modern_kitchen, checked: false) %> Modern kitchen?</br>
-    <%= checkbox(f, :outdoor_area, checked: false) %> Outdoor entertainment area?</br>
-    <%= checkbox(f, :quiet_location, checked: false) %> Quiet location?</br>
-    <%= checkbox(f, :security, checked: false) %> Security?</br>
-    <%= checkbox(f, :study, checked: false) %> Study?</br>
-    <%= checkbox(f, :sunroom, checked: false) %> Sunroom?</br>
-    <%= checkbox(f, :terrace_balcony, checked: false) %> Terrace and Balcony?</br>
-    <%= checkbox(f, :views, checked: false) %> Views?</br>
+    <%= capture_features(f, :modern_bathroom) %> Modern bathroom?</br>
+    <%= capture_features(f, :modern_kitchen) %> Modern kitchen?</br>
+    <%= capture_features(f, :outdoor_area) %> Outdoor entertainment area?</br>
+    <%= capture_features(f, :quiet_location) %> Quiet location?</br>
+    <%= capture_features(f, :security) %> Security?</br>
+    <%= capture_features(f, :study) %> Study?</br>
+    <%= capture_features(f, :sunroom) %> Sunroom?</br>
+    <%= capture_features(f, :terrace_balcony) %> Terrace and Balcony?</br>
+    <%= capture_features(f, :views) %> Views?</br>
     Additional fields <%= text_input(f, :addition_field) %></br>
   </div>
 
 
   <h3>Inspection Time</h3>
   Date: <%= date_input(f, :inspection_date) %></br>
-  <%= datetime_select(f, :inspection_time, builder: fn b -> %>
+  <%= datetime_select(f, :inspection_time_from, builder: fn b -> %>
     From: <%= b.(:hour, []) %>:<%= b.(:minute, []) %></br>
+  <% end) %>
+  <%= datetime_select(f, :inspection_time_to, builder: fn b -> %>
     To: <%= b.(:hour, []) %>:<%= b.(:minute, []) %></br>
   <% end) %>
 

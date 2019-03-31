@@ -10,7 +10,6 @@ defmodule SpWeb.PropertyController do
   end
 
   def insert(conn, params) do
-    IO.inspect(params, label: Params)
     redirect(conn, to:  "/")
   end
 end
